@@ -4,9 +4,8 @@ Logique propositionnelle implémentée sans aucune dépendance, où chaque class
 
 **Léo Mégret**, Master Linguistique Informatique, Université Paris Cité
 
-> **État du dépôt, version 1.** C'est la première étape d'un travail que je mène
-> par étapes, chacune dans son propre dossier. Seule la version 1 existe à ce
-> jour. Je publie au fur et à mesure plutôt qu'une fois tout terminé.
+> **État du dépôt, version 2.** Je mène ce travail par étapes, chacune dans son
+> propre dossier. Je publie au fur et à mesure plutôt qu'une fois tout terminé.
 
 ---
 
@@ -24,55 +23,36 @@ plus appris sur la conception d'un programme, et pas seulement sur la logique.
 
 ---
 
-## Ce qui existe aujourd'hui
+## Les versions publiées
 
-### Version 1, logique propositionnelle. Syntaxe, sémantique, model checking
+| | Dossier | Contenu | Tests |
+|---|---|---|---:|
+| **1** | `1.logique_python_projet` | Logique propositionnelle, syntaxe, sémantique, model checking | 28 |
+| **2** | `2.logique_python_projet` | Construire des modèles, formes normales et DPLL | 20 |
 
-| Fichier | Ce que j'y fais |
-|---|---|
-| `src/propositionnel.py` | Une classe par clause du langage, `Var`, `Neg`, `Conj`, `Disj`, `Impl` et `Equiv`. Évaluation dans un modèle, tables de vérité, satisfiabilité, validité, contradiction, conséquence logique et génération de contre-exemples. |
-| `tests/test_propositionnel.py` | 28 tests, dont toutes les tables de vérité de référence et les lois classiques. |
-
-Origine universitaire. Devoir de M1 en sémantique computationnelle, *PL, model
-checking and building* (Timothée Bernard), réalisé en groupe.
+Soit **48 tests** au total. Chaque dossier contient tout le contenu du
+précédent, plus une étape.
 
 ---
 
-## Lancer le code
+## Lancer la dernière version
 
 ```bash
-cd 1.logique_python_projet
-python -m src.propositionnel
-python -m tests.test_propositionnel
+cd 2.logique_python_projet
+python -m src.sat
+python -m tests.test_sat
 ```
-
-Aucune dépendance.
-
----
-
-## Ce que je retiens de cette étape
-
-**Une définition inductive se traduit en une classe par clause.** Le programme
-devient alors aussi lisible que la définition. Ce n'est pas une astuce de
-conception, c'est la structure du problème qui apparaît dans le code.
-
-**Un contre-exemple est plus utile qu'un verdict.** Dire qu'une formule n'est pas
-valide n'apprend rien. Donner la valuation qui la met en défaut montre où le
-raisonnement casse, et rend les tests faciles à écrire.
-
-**Le model checking par énumération est exact.** Il ne se trompe jamais, et il ne
-passe pas à l'échelle.
 
 ---
 
 ## Ce qui reste ouvert
 
-Mon `tous_les_modeles()` énumère `2ⁿ` valuations. Avec 20 variables cela fait un
-million, avec 50 c'est hors de portée.
+La logique propositionnelle ne dit rien de la structure interne d'une phrase.
+« Tous les chiens aboient » et « Médor aboie » sont pour elle deux variables sans
+rapport, alors que la première devrait entraîner la seconde.
 
-Tant que je n'ai pas de méthode qui évite cette explosion, le model checking reste
-un jouet. Je sais que les solveurs SAT y parviennent, je ne sais pas encore
-comment.
+Tant que je ne peux pas descendre sous la proposition, la moitié des inférences
+du langage ordinaire m'échappe.
 
 ---
 
@@ -96,6 +76,8 @@ correct.
 que j'attendais, j'écris ce que j'ai trouvé.
 
 **Le code est commenté en français.**
+
+---
 
 ---
 
