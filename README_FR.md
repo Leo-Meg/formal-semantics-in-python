@@ -1,11 +1,11 @@
 # Sémantique formelle, de la phrase à la valeur de vérité
 
-Logique propositionnelle implémentée sans aucune dépendance, où chaque classe du programme est une clause de la définition mathématique.
+La logique implémentée sans aucune dépendance, où chaque classe du programme est une clause de la définition mathématique.
 
-**Léo Mégret**, Master Linguistique Informatique, Université Paris Cité
+**Léo Mégret** — implémentation, notes techniques en français.  
+**Haeeul Hwang** — documentation anglaise, documentation coréenne, relecture.
 
-> **État du dépôt, version 2.** Je mène ce travail par étapes, chacune dans son
-> propre dossier. Je publie au fur et à mesure plutôt qu'une fois tout terminé.
+> **État du dépôt** — étape 2 sur 5, publiée par Léo Mégret.
 
 ---
 
@@ -21,64 +21,62 @@ oral. L'énoncé insistait, *« Make sure that your code is clear and well comme
 The quality of your code will be taken into account. »* C'est le devoir qui m'a le
 plus appris sur la conception d'un programme, et pas seulement sur la logique.
 
----
-
-## Les versions publiées
-
-| | Dossier | Contenu | Tests |
-|---|---|---|---:|
-| **1** | `1.logique_python_projet` | Logique propositionnelle, syntaxe, sémantique, model checking | 28 |
-| **2** | `2.logique_python_projet` | Construire des modèles, formes normales et DPLL | 20 |
-
-Soit **48 tests** au total. Chaque dossier contient tout le contenu du
-précédent, plus une étape.
+La chaîne va d'un bout à l'autre : une phrase française entre, une valeur de
+vérité sort.
 
 ---
 
-## Lancer la dernière version
+## Les étapes
+
+| | Étape | Modules | Tests | Publiée par | Note détaillée (français) |
+|---|---|---|---:|---|---|
+| **1** | Logique propositionnelle : syntaxe, sémantique, model checking | `src/propositionnel.py` | 28 | Léo | [`logique-propositionnelle`](notes/logique-propositionnelle.md) |
+| **2** | Construire des modèles : formes normales et DPLL | `src/sat.py` | 20 | Léo | [`formes-normales-et-dpll`](notes/formes-normales-et-dpll.md) |
+
+**48** tests au total.
+
+---
+
+## Ce que chaque étape a trouvé
+
+**1. Logique propositionnelle : syntaxe, sémantique, model checking**  
+Le solveur ne répond pas *faux*, il exhibe le contre-exemple : le sol est mouillé et il n'a pas plu. C'est l'arrosage automatique.
+
+**2. Construire des modèles : formes normales et DPLL**  
+Sur une chaîne d'implications, DPLL prend zéro décision, gain ×315. Sur le principe des tiroirs il bute — et Haken a démontré en 1985 qu'aucune preuve par résolution de taille polynomiale n'existe.
+
+---
+
+## Lancer le code
 
 ```bash
-cd 2.logique_python_projet
 python -m src.sat
+
+python -m tests.test_propositionnel
 python -m tests.test_sat
 ```
 
 ---
 
-## Ce qui reste ouvert
+## Comment nous travaillons
 
-La logique propositionnelle ne dit rien de la structure interne d'une phrase.
-« Tous les chiens aboient » et « Médor aboie » sont pour elle deux variables sans
-rapport, alors que la première devrait entraîner la seconde.
+**Rien à télécharger.** Le corpus est écrit dans le code. Tous mes
+notebooks de master commençaient par un `wget` vers un serveur universitaire ou
+un montage de Google Drive ; deux ans plus tard, la moitié ne s'exécutent plus.
 
-Tant que je ne peux pas descendre sous la proposition, la moitié des inférences
-du langage ordinaire m'échappe.
-
----
-
-## Comment je travaille
-
-Quatre règles que je me suis données en commençant, et que je compte tenir sur
-tout le dépôt.
-
-**Rien à télécharger.** Le corpus est écrit dans le code. Mes notebooks de master
-commençaient tous par un `wget` vers un serveur universitaire ou un montage de
-Google Drive. Deux ans plus tard, la moitié ne s'exécutent plus.
-
-**Rien n'est affirmé sans mesure.** Chaque chiffre de ce fichier correspond à une
-commande qu'on peut relancer.
+**Rien n'est affirmé sans mesure.** Chaque chiffre de ce fichier correspond à
+une commande qu'on peut relancer.
 
 **Les erreurs de mes rendus sont citées, pas effacées.** Quand un résultat que
-j'avais rendu en cours était faux ou incomplet, je le dis et je donne le résultat
-correct.
+j'avais rendu était faux ou incomplet, je le dis et je donne le bon.
 
 **Les résultats négatifs restent.** Quand une expérience montre l'inverse de ce
 que j'attendais, j'écris ce que j'ai trouvé.
 
-**Le code est commenté en français.**
+**Le code est commenté en français**, parce que c'est la langue dans laquelle je
+l'ai pensé. La documentation est en anglais, et en coréen quand Haeeul est
+passée dessus.
 
 ---
 
----
-
-*Version anglaise, [README.md](README.md).*
+*English: [README.md](README.md) · [CONTRIBUTORS.md](CONTRIBUTORS.md)*

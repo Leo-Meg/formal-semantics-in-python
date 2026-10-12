@@ -1,4 +1,6 @@
-# Version 1, logique propositionnelle. Syntaxe, sémantique, model checking
+# Logique propositionnelle. Syntaxe, sémantique, model checking
+
+> Étape 1 sur 5 du dépôt.
 
 > **Où j'en suis.** C'est le point de départ de la sémantique formelle. Un
 > langage défini inductivement, une sémantique définie clause par clause, et un
@@ -6,7 +8,7 @@
 
 ---
 
-## Ce que contient cette version
+## Ce que contient cette étape
 
 | Fichier | Ce que j'y fais |
 |---|---|

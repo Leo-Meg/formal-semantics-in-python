@@ -1,13 +1,15 @@
-# Version 2, construire des modèles. Formes normales et DPLL
+# Construire des modèles. Formes normales et DPLL
 
-> **Où j'en suis.** La version 1 vérifiait des modèles en énumérant `2ⁿ`
-> valuations. Cette version s'attaque à la seconde moitié du titre du devoir,
+> Étape 2 sur 5 du dépôt.
+
+> **Où j'en suis.** La étape 1 vérifiait des modèles en énumérant `2ⁿ`
+> valuations. Cette étape s'attaque à la seconde moitié du titre du devoir,
 > *model **building***, et implémente l'algorithme qui est encore aujourd'hui
 > le squelette de tous les solveurs SAT.
 
 ---
 
-## Nouveautés par rapport à la version 1
+## Nouveautés par rapport à l'étape 1
 
 | Fichier | Ce que j'ajoute |
 |---|---|
@@ -39,7 +41,7 @@ python -m tests.test_sat
 | **building** | φ seule | trouver M, ou prouver qu'il n'en existe aucun | **NP-complet** |
 
 Le second, c'est **SAT**, le premier problème dont on a démontré la
-NP-complétude (Cook, 1971). Mon `tous_les_modeles()` de la version 1 le résolvait
+NP-complétude (Cook, 1971). Mon `tous_les_modeles()` de l'étape 1 le résolvait
 par force brute. `2ⁿ` valuations. Avec 20 variables, un million, avec 50, plus
 que d'atomes dans une pièce.
 
@@ -117,7 +119,7 @@ Trois personnes, trois animaux, quatre indices.
 **Une anecdote que je garde**, parce qu'elle illustre l'intérêt d'avoir deux
 implémentations indépendantes, ma première version de l'énigme n'avait que
 trois indices, et mon solveur DPLL renvoyait bien une solution. Le test
-d'unicité, écrit avec l'énumération exhaustive de la version 1, a montré qu'il
+d'unicité, écrit avec l'énumération exhaustive de l'étape 1, a montré qu'il
 en existait **trois**.
 
 Le solveur n'avait pas tort. C'est mon énigme qui était sous-contrainte. Sans le
